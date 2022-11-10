@@ -2343,7 +2343,7 @@ public class Register extends javax.swing.JFrame {
         picLabel.setText("Attach your document here...");
         file.setText(null);
 
-        updateTime();
+        refreshTime();
     }
 
     private void add(JTextField issueNo, JTextField date, JTextField transition, JTextArea subject,
