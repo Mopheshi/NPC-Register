@@ -13,11 +13,8 @@ import java.sql.DriverManager;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -28,11 +25,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -2559,6 +2551,7 @@ public class Register extends javax.swing.JFrame {
                         }
                         statement.execute();
                     }
+                    model.setRowCount(0);
                 } catch (SQLException e) {
                     System.out.println(e);
                     JOptionPane.showMessageDialog(this, "Couldn't synchronize records, try again!", "Sync error", JOptionPane.YES_NO_OPTION);
@@ -2665,15 +2658,15 @@ public class Register extends javax.swing.JFrame {
         fileHolder.setIcon(new ImageIcon(image));
     }
 
-    private static class cellRenderer extends DefaultTableCellRenderer {
-
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-                boolean hasFocus, int row, int column) {
-            if (value instanceof JLabel label) {
-                return label;
-            }
-            return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        }
-    }
+//    private static class cellRenderer extends DefaultTableCellRenderer {
+//
+//        @Override
+//        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+//                boolean hasFocus, int row, int column) {
+//            if (value instanceof JLabel label) {
+//                return label;
+//            }
+//            return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+//        }
+//    }
 }

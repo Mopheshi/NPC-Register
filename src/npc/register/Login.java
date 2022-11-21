@@ -251,17 +251,16 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     new Register().setVisible(true);
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", 1);
-            }
-
-            if ("".equals(username) && "".equals(password)) {
+            } else if ("".equals(username) && "".equals(password)) {
                 JOptionPane.showMessageDialog(this, "Username and Password are empty, type in Username and Password to Log In, please...", "Error", 1);
             } else if ("".equals(username)) {
                 JOptionPane.showMessageDialog(this, "Username is empty, type in Username to Log In, please...", "Error", 1);
             } else if ("".equals(password)) {
                 JOptionPane.showMessageDialog(this, "Password is empty, type in Password to Log In, please...", "Error", 1);
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", 1);
             }
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e, "Error", 1);
         }
