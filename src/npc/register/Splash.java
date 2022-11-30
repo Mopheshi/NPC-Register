@@ -78,36 +78,14 @@ public class Splash extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    @SuppressWarnings("SleepWhileInLoop")
-    private void bar() {
-        Thread thread = new Thread(() -> {
-            int i = 0;
-            while (i <= 100) {
-                i++;
-                bar.setValue(i);
-                switch (i) {
-                    case 100 -> {
-                        this.dispose();
-                        new Login().setVisible(true);
-                    }
-                }
-                try {
-                    Thread.sleep(20);
-                } catch (InterruptedException ex) {
-                }
-            }
-        });
-        thread.start();
-    }
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -127,6 +105,26 @@ public class Splash extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Splash().setVisible(true);
         });
+    }
+
+    @SuppressWarnings("SleepWhileInLoop")
+    private void bar() {
+        Thread thread = new Thread(() -> {
+            int i = 0;
+            while (i <= 100) {
+                i++;
+                bar.setValue(i);
+                if (i == 100) {
+                    this.dispose();
+                    new Login().setVisible(true);
+                }
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException ex) {
+                }
+            }
+        });
+        thread.start();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
