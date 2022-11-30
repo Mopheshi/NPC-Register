@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="NPC_Register">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/NPC_Register.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

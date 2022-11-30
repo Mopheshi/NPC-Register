@@ -7,13 +7,16 @@ package npc.register;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
-import java.sql.DriverManager;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -55,6 +58,11 @@ public class Login extends javax.swing.JFrame {
         setTitle("Log In");
         setAlwaysOnTop(true);
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
@@ -82,6 +90,9 @@ public class Login extends javax.swing.JFrame {
         userName.setForeground(new java.awt.Color(0, 0, 0));
         userName.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         userName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userNameKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 userNameKeyTyped(evt);
             }
@@ -106,6 +117,9 @@ public class Login extends javax.swing.JFrame {
         passWord.setForeground(new java.awt.Color(0, 0, 0));
         passWord.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         passWord.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passWordKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 passWordKeyTyped(evt);
             }
@@ -179,6 +193,24 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BGKeyTyped
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login(userName, passWord);
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void userNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login(userName, passWord);
+        }
+    }//GEN-LAST:event_userNameKeyPressed
+
+    private void passWordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passWordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login(userName, passWord);
+        }
+    }//GEN-LAST:event_passWordKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -242,27 +274,32 @@ public class Login extends javax.swing.JFrame {
             ResultSet resultSet = (ResultSet) preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+                String name = resultSet.getString("name");
                 String uN = resultSet.getString("username");
                 String pW = resultSet.getString("password");
                 String dept = resultSet.getString("department");
+                String id = resultSet.getString("staffid");
                 exportLog(dept);
+                exportLogs(name, id);
 
-                if (uN.equals(username) && pW.equals(password)) {
+                if (uN.equals(username) && pW.equals(encryptToMD5(password))) {
                     this.dispose();
                     new Register().setVisible(true);
+                } else if (!uN.equals(username) || !pW.equals(encryptToMD5(password))) {
+                    JOptionPane.showMessageDialog(this, "Invalid login credentials!", "Login error", 1);
                 }
             } else if ("".equals(username) && "".equals(password)) {
-                JOptionPane.showMessageDialog(this, "Username and Password are empty, type in Username and Password to Log In, please...", "Error", 1);
+                JOptionPane.showMessageDialog(this, "Type in username and password to log in, please...", "Login error", 1);
             } else if ("".equals(username)) {
-                JOptionPane.showMessageDialog(this, "Username is empty, type in Username to Log In, please...", "Error", 1);
+                JOptionPane.showMessageDialog(this, "Type in your username to log in, please...", "Login error", 1);
             } else if ("".equals(password)) {
-                JOptionPane.showMessageDialog(this, "Password is empty, type in Password to Log In, please...", "Error", 1);
+                JOptionPane.showMessageDialog(this, "Type in your password to log in, please...", "Login error", 1);
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", 1);
+                JOptionPane.showMessageDialog(this, "Invalid login credentials!", "Login error", 1);
             }
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, e, "Error", 1);
+        } catch (SQLException | NoSuchAlgorithmException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", 1);
         }
     }
 
@@ -279,12 +316,24 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-//    private void myMongoDBConnection() {
-//        ConnectionString connectionString = new ConnectionString("mongodb+srv://ghost:<001008186116002>@npc-register.pvzcxcm.mongodb.net/?retryWrites=true&w=majority");
-//        MongoClientSettings settings = MongoClientSettings.builder()
-//                .applyConnectionString(connectionString)
-//                .build();
-//        MongoClient mongoClient = (MongoClient) MongoClients.create(settings);
-//        MongoDatabase database = mongoClient.getDatabase("test");
-//    }
+    private void exportLogs(String name, String id) {
+        try {
+            FileOutputStream fos = new FileOutputStream("%.txt");
+            try ( PrintWriter pw = new PrintWriter(fos)) {
+                pw.write(name);
+                pw.write("\n");
+                pw.write(id);
+                pw.close();
+                fos.close();
+            } catch (IOException ex) {
+            }
+        } catch (FileNotFoundException fnfe) {
+        }
+    }
+
+    public static String encryptToMD5(String string) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(string.getBytes(), 0, string.length());
+        return new BigInteger(1, md.digest()).toString(16);
+    }
 }

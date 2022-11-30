@@ -4,38 +4,43 @@
  */
 package npc.register;
 
-import javax.swing.JComboBox;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import java.sql.DriverManager;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Image;
-import java.io.File;
+import java.awt.event.KeyEvent;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -65,10 +70,13 @@ public class Register extends javax.swing.JFrame {
         inwardFileButton = new javax.swing.JButton();
         outwardFileButton = new javax.swing.JButton();
         export = new javax.swing.JButton();
-        emblem = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
-        title = new javax.swing.JLabel();
         importRecords = new javax.swing.JButton();
+        emblem = new javax.swing.JLabel();
+        marquee = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
+        staff = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
         tab = new javax.swing.JTabbedPane();
         inMails = new javax.swing.JPanel();
         inMailScroll = new javax.swing.JScrollPane();
@@ -156,7 +164,7 @@ public class Register extends javax.swing.JFrame {
         sub3 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         subjectOutwardFile = new javax.swing.JTextArea();
-        issueNoOutwardFIle = new javax.swing.JTextField();
+        issueNoOutwardFile = new javax.swing.JTextField();
         dateOutwardFile = new javax.swing.JTextField();
         whoF3 = new javax.swing.JLabel();
         note3 = new javax.swing.JLabel();
@@ -308,26 +316,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         sideBar.add(export);
-        export.setBounds(130, 530, 90, 40);
-
-        emblem.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        emblem.setForeground(new java.awt.Color(153, 153, 153));
-        emblem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emblem.setText("Morpheus Softwares");
-        sideBar.add(emblem);
-        emblem.setBounds(0, 580, 120, 16);
-
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/npc/register/npc.png"))); // NOI18N
-        sideBar.add(logo);
-        logo.setBounds(10, 50, 230, 200);
-
-        title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        title.setForeground(new java.awt.Color(0, 204, 51));
-        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        title.setText("NPC Register");
-        sideBar.add(title);
-        title.setBounds(30, 0, 190, 50);
+        export.setBounds(130, 520, 90, 40);
 
         importRecords.setBackground(new java.awt.Color(255, 255, 255));
         importRecords.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -350,9 +339,44 @@ public class Register extends javax.swing.JFrame {
             }
         });
         sideBar.add(importRecords);
-        importRecords.setBounds(30, 530, 90, 40);
+        importRecords.setBounds(30, 520, 90, 40);
 
-        getContentPane().add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 600));
+        emblem.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        emblem.setForeground(new java.awt.Color(153, 153, 153));
+        emblem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        emblem.setText("Morpheus Softwares");
+        sideBar.add(emblem);
+        emblem.setBounds(0, 630, 120, 16);
+
+        marquee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        marquee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/npc/register/npc.png"))); // NOI18N
+        sideBar.add(marquee);
+        marquee.setBounds(10, 50, 230, 200);
+
+        title.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        title.setForeground(java.awt.Color.black);
+        sideBar.add(title);
+        title.setBounds(10, 570, 230, 20);
+
+        staff.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        staff.setForeground(java.awt.Color.black);
+        staff.setText("Staff ID:");
+        sideBar.add(staff);
+        staff.setBounds(10, 600, 60, 20);
+
+        logo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        logo.setForeground(new java.awt.Color(0, 204, 51));
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setText("NPC Register");
+        sideBar.add(logo);
+        logo.setBounds(30, 0, 190, 50);
+
+        id.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        id.setForeground(java.awt.Color.black);
+        sideBar.add(id);
+        id.setBounds(70, 600, 170, 20);
+
+        getContentPane().add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 650));
 
         tab.setBackground(new java.awt.Color(255, 255, 255));
         tab.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -409,10 +433,15 @@ public class Register extends javax.swing.JFrame {
                 inMailTableMouseClicked(evt);
             }
         });
+        inMailTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inMailTableKeyPressed(evt);
+            }
+        });
         inMailScroll.setViewportView(inMailTable);
 
         inMails.add(inMailScroll);
-        inMailScroll.setBounds(0, 393, 950, 180);
+        inMailScroll.setBounds(0, 393, 950, 230);
 
         issueNoInwardMail.setBackground(new java.awt.Color(255, 255, 255));
         issueNoInwardMail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -548,7 +577,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inMails.add(deleteInwardMail);
-        deleteInwardMail.setBounds(160, 330, 120, 50);
+        deleteInwardMail.setBounds(170, 330, 110, 50);
 
         updateInwardMail.setBackground(new java.awt.Color(255, 255, 255));
         updateInwardMail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -570,7 +599,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inMails.add(updateInwardMail);
-        updateInwardMail.setBounds(310, 330, 130, 50);
+        updateInwardMail.setBounds(320, 330, 110, 50);
 
         whoFromInwardMail.setBackground(new java.awt.Color(255, 255, 255));
         whoFromInwardMail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -647,7 +676,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inMails.add(searchInwardMail);
-        searchInwardMail.setBounds(660, 334, 270, 40);
+        searchInwardMail.setBounds(650, 330, 280, 40);
 
         yourDeptInwardMail.setBackground(new java.awt.Color(255, 255, 255));
         yourDeptInwardMail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -659,7 +688,7 @@ public class Register extends javax.swing.JFrame {
 
         attachInwardMail.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         attachInwardMail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        attachInwardMail.setText("Attach your document here...");
+        attachInwardMail.setText("Click to attach document here...");
         attachInwardMail.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         attachInwardMail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         attachInwardMail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -839,10 +868,15 @@ public class Register extends javax.swing.JFrame {
                 outMailTableMouseClicked(evt);
             }
         });
+        outMailTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                outMailTableKeyPressed(evt);
+            }
+        });
         outMailScroll.setViewportView(outMailTable);
 
         outMails.add(outMailScroll);
-        outMailScroll.setBounds(0, 393, 950, 180);
+        outMailScroll.setBounds(0, 393, 950, 230);
 
         addOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         addOutwardMail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -864,7 +898,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outMails.add(addOutwardMail);
-        addOutwardMail.setBounds(20, 330, 120, 50);
+        addOutwardMail.setBounds(20, 330, 110, 50);
 
         deleteOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         deleteOutwardMail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -886,7 +920,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outMails.add(deleteOutwardMail);
-        deleteOutwardMail.setBounds(180, 330, 110, 50);
+        deleteOutwardMail.setBounds(170, 330, 110, 50);
 
         updateOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         updateOutwardMail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -908,7 +942,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outMails.add(updateOutwardMail);
-        updateOutwardMail.setBounds(330, 330, 110, 50);
+        updateOutwardMail.setBounds(320, 330, 110, 50);
 
         syncOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         syncOutwardMail.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -930,7 +964,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outMails.add(syncOutwardMail);
-        syncOutwardMail.setBounds(480, 330, 130, 50);
+        syncOutwardMail.setBounds(470, 330, 130, 50);
 
         searchOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         searchOutwardMail.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
@@ -969,7 +1003,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outMails.add(searchOutwardMail);
-        searchOutwardMail.setBounds(660, 330, 280, 40);
+        searchOutwardMail.setBounds(650, 330, 280, 40);
 
         yourDeptOutwardMail.setBackground(new java.awt.Color(255, 255, 255));
         yourDeptOutwardMail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -987,7 +1021,7 @@ public class Register extends javax.swing.JFrame {
 
         attachOutwardMail.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         attachOutwardMail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        attachOutwardMail.setText("Attach your document here...");
+        attachOutwardMail.setText("Click to attach document here...");
         attachOutwardMail.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         attachOutwardMail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1160,10 +1194,15 @@ public class Register extends javax.swing.JFrame {
                 inFileTableMouseClicked(evt);
             }
         });
+        inFileTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inFileTableKeyPressed(evt);
+            }
+        });
         inFileScroll.setViewportView(inFileTable);
 
         inFiles.add(inFileScroll);
-        inFileScroll.setBounds(0, 393, 950, 180);
+        inFileScroll.setBounds(0, 393, 950, 230);
 
         addInwardFile.setBackground(new java.awt.Color(255, 255, 255));
         addInwardFile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1207,7 +1246,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inFiles.add(deleteInwardFile);
-        deleteInwardFile.setBounds(170, 330, 120, 50);
+        deleteInwardFile.setBounds(170, 330, 110, 50);
 
         updateInwardFile.setBackground(new java.awt.Color(255, 255, 255));
         updateInwardFile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1229,7 +1268,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inFiles.add(updateInwardFile);
-        updateInwardFile.setBounds(330, 330, 110, 50);
+        updateInwardFile.setBounds(320, 330, 110, 50);
 
         syncInwardFile.setBackground(new java.awt.Color(255, 255, 255));
         syncInwardFile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1251,7 +1290,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         inFiles.add(syncInwardFile);
-        syncInwardFile.setBounds(480, 330, 130, 50);
+        syncInwardFile.setBounds(470, 330, 130, 50);
 
         searchInwardFile.setBackground(new java.awt.Color(255, 255, 255));
         searchInwardFile.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
@@ -1308,7 +1347,7 @@ public class Register extends javax.swing.JFrame {
 
         attachInwardFile.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         attachInwardFile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        attachInwardFile.setText("Attach your document here...");
+        attachInwardFile.setText("Click to attach document here...");
         attachInwardFile.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         attachInwardFile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1360,12 +1399,12 @@ public class Register extends javax.swing.JFrame {
         outFIles.add(jScrollPane11);
         jScrollPane11.setBounds(400, 120, 330, 80);
 
-        issueNoOutwardFIle.setBackground(new java.awt.Color(255, 255, 255));
-        issueNoOutwardFIle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        issueNoOutwardFIle.setForeground(new java.awt.Color(0, 0, 0));
-        issueNoOutwardFIle.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
-        outFIles.add(issueNoOutwardFIle);
-        issueNoOutwardFIle.setBounds(20, 40, 330, 40);
+        issueNoOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
+        issueNoOutwardFile.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        issueNoOutwardFile.setForeground(new java.awt.Color(0, 0, 0));
+        issueNoOutwardFile.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
+        outFIles.add(issueNoOutwardFile);
+        issueNoOutwardFile.setBounds(20, 40, 330, 40);
 
         dateOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
         dateOutwardFile.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -1481,10 +1520,15 @@ public class Register extends javax.swing.JFrame {
                 outFileTableMouseClicked(evt);
             }
         });
+        outFileTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                outFileTableKeyPressed(evt);
+            }
+        });
         outFileScroll.setViewportView(outFileTable);
 
         outFIles.add(outFileScroll);
-        outFileScroll.setBounds(0, 393, 950, 180);
+        outFileScroll.setBounds(0, 393, 950, 230);
 
         addOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
         addOutwardFile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1550,7 +1594,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outFIles.add(updateOutwardFile);
-        updateOutwardFile.setBounds(330, 330, 110, 50);
+        updateOutwardFile.setBounds(320, 330, 110, 50);
 
         syncOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
         syncOutwardFile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -1572,7 +1616,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outFIles.add(syncOutwardFile);
-        syncOutwardFile.setBounds(480, 330, 130, 50);
+        syncOutwardFile.setBounds(470, 330, 130, 50);
 
         searchOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
         searchOutwardFile.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
@@ -1611,7 +1655,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         outFIles.add(searchOutwardFile);
-        searchOutwardFile.setBounds(650, 340, 280, 40);
+        searchOutwardFile.setBounds(650, 330, 280, 40);
 
         yourDeptOutwardFile.setBackground(new java.awt.Color(255, 255, 255));
         yourDeptOutwardFile.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -1629,7 +1673,7 @@ public class Register extends javax.swing.JFrame {
 
         attachOutwardFile.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         attachOutwardFile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        attachOutwardFile.setText("Attach your document here...");
+        attachOutwardFile.setText("Click to attach document here...");
         attachOutwardFile.setBorder(new javax.swing.border.LineBorder(java.awt.Color.green, 2, true));
         attachOutwardFile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1647,7 +1691,7 @@ public class Register extends javax.swing.JFrame {
 
         tab.addTab("Outward Files", outFIles);
 
-        getContentPane().add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 600));
+        getContentPane().add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 950, 650));
 
         pack();
         setLocationRelativeTo(null);
@@ -1681,14 +1725,13 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_addInwardMailActionPerformed
 
     private void syncInwardMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncInwardMailActionPerformed
-        syncRecordsToGeneralDatabase(inMailTable, "inmailtable");
-        syncRecordsToDeptDatabase(inMailTable, yourDeptInwardMail.getText());
+        syncRecords(inMailTable, "inmailtable");
+        autoSave();
     }//GEN-LAST:event_syncInwardMailActionPerformed
 
     private void deleteInwardMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInwardMailActionPerformed
-        delete(issueNoInwardMail, dateInwardMail, transitionInwardMail, subjectInwardMail,
-                purposeInwardMail, whoFromInwardMail, aTittleInwardMail, aTittleInwardMail,
-                inMailTable);
+        delete(issueNoInwardMail, transitionInwardMail, subjectInwardMail, purposeInwardMail,
+                whoFromInwardMail, aTittleInwardMail, aTittleInwardMail, inMailTable);
         autoSave();
     }//GEN-LAST:event_deleteInwardMailActionPerformed
 
@@ -1696,6 +1739,7 @@ public class Register extends javax.swing.JFrame {
         update(issueNoInwardMail, dateInwardMail, transitionInwardMail, subjectInwardMail,
                 purposeInwardMail, whoFromInwardMail, yourDeptInwardMail, attachInwardMail,
                 aTittleInwardMail, inMailTable);
+        autoSave();
     }//GEN-LAST:event_updateInwardMailActionPerformed
 
     private void inMailTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inMailTableMouseClicked
@@ -1705,9 +1749,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_inMailTableMouseClicked
 
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
-        refreshTime();
+        Export(inMailTable, inFileTable, outMailTable, outFileTable, yourDeptInwardMail);
         autoSave();
-        JOptionPane.showMessageDialog(this, "Records exported successfully...");
     }//GEN-LAST:event_exportActionPerformed
 
     private void inwardMailButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inwardMailButtonMouseEntered
@@ -1850,8 +1893,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteOutwardMailMouseExited
 
     private void deleteOutwardMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOutwardMailActionPerformed
-        delete(issueNoOutwardMail, dateOutwardMail, transitionOutwardMail, subjectOutwardMail,
-                purposeOutwardMail, whoToOutwardMail, attachOutwardMail, aTittleOutwardMail, outMailTable);
+        delete(issueNoOutwardMail, transitionOutwardMail, subjectOutwardMail, purposeOutwardMail,
+                whoToOutwardMail, attachOutwardMail, aTittleOutwardMail, outMailTable);
         autoSave();
     }//GEN-LAST:event_deleteOutwardMailActionPerformed
 
@@ -1879,8 +1922,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_syncOutwardMailMouseExited
 
     private void syncOutwardMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncOutwardMailActionPerformed
-        syncRecordsToGeneralDatabase(outMailTable, "outmailtable");
-        syncRecordsToDeptDatabase(inMailTable, yourDeptOutwardMail.getText());
+        syncRecords(outMailTable, "outmailtable");
+        autoSave();
     }//GEN-LAST:event_syncOutwardMailActionPerformed
 
     private void searchOutwardMailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchOutwardMailFocusGained
@@ -1951,9 +1994,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteInwardFileMouseExited
 
     private void deleteInwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInwardFileActionPerformed
-        delete(issueNoInwardFile, dateInwardFile, transitionInwardFile, subjectInwardFile,
-                purposeInwardFile, whoFromInwardFile, attachInwardFile, aTittleInwardFile,
-                inFileTable);
+        delete(issueNoInwardFile, transitionInwardFile, subjectInwardFile, purposeInwardFile,
+                whoFromInwardFile, attachInwardFile, aTittleInwardFile, inFileTable);
         autoSave();
     }//GEN-LAST:event_deleteInwardFileActionPerformed
 
@@ -1981,8 +2023,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_syncInwardFileMouseExited
 
     private void syncInwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncInwardFileActionPerformed
-        syncRecordsToGeneralDatabase(inFileTable, "infiletable");
-        syncRecordsToDeptDatabase(inMailTable, yourDeptInwardFile.getText());
+        syncRecords(inFileTable, "infiletable");
+        autoSave();
     }//GEN-LAST:event_syncInwardFileActionPerformed
 
     private void searchInwardFileFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchInwardFileFocusGained
@@ -2024,7 +2066,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_searchInwardFileKeyTyped
 
     private void outFileTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outFileTableMouseClicked
-        showRecord(issueNoOutwardFIle, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
+        showRecord(issueNoOutwardFile, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
                 purposeOutwardFile, whoToOutwardFile, yourDeptOutwardFile, attachOutwardFile,
                 aTittleOutwardFile, outFileTable);
     }//GEN-LAST:event_outFileTableMouseClicked
@@ -2038,7 +2080,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_addOutwardFileMouseExited
 
     private void addOutwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOutwardFileActionPerformed
-        add(issueNoOutwardFIle, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
+        add(issueNoOutwardFile, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
                 purposeOutwardFile, whoToOutwardFile, yourDeptOutwardFile, attachOutwardFile,
                 aTittleOutwardFile, outFileTable);
         autoSave();
@@ -2053,9 +2095,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteOutwardFileMouseExited
 
     private void deleteOutwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOutwardFileActionPerformed
-        delete(issueNoOutwardFIle, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
-                purposeOutwardFile, whoToOutwardFile, attachOutwardFile, aTittleOutwardFile,
-                outFileTable);
+        delete(issueNoOutwardFile, transitionOutwardFile, subjectOutwardFile, purposeOutwardFile,
+                whoToOutwardFile, attachOutwardFile, aTittleOutwardFile, outFileTable);
         autoSave();
     }//GEN-LAST:event_deleteOutwardFileActionPerformed
 
@@ -2068,7 +2109,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_updateOutwardFileMouseExited
 
     private void updateOutwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateOutwardFileActionPerformed
-        update(issueNoOutwardFIle, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
+        update(issueNoOutwardFile, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
                 purposeOutwardFile, whoToOutwardFile, yourDeptOutwardFile, attachOutwardFile,
                 aTittleOutwardFile, outFileTable);
         autoSave();
@@ -2083,8 +2124,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_syncOutwardFileMouseExited
 
     private void syncOutwardFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncOutwardFileActionPerformed
-        syncRecordsToGeneralDatabase(outFileTable, "outfiletable");
-        syncRecordsToDeptDatabase(inMailTable, yourDeptOutwardFile.getText());
+        syncRecords(outFileTable, "outfiletable");
+        autoSave();
     }//GEN-LAST:event_syncOutwardFileActionPerformed
 
     private void searchOutwardFileFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchOutwardFileFocusGained
@@ -2142,9 +2183,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_importRecordsMouseExited
 
     private void importRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importRecordsActionPerformed
-        refreshTime();
-        autoLoad();
-        JOptionPane.showMessageDialog(this, "Records imported successfully...");
+        Import(inMailTable, inFileTable, outMailTable, outFileTable);
+        autoSave();
     }//GEN-LAST:event_importRecordsActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -2152,7 +2192,8 @@ public class Register extends javax.swing.JFrame {
         importLog(yourDeptOutwardMail);
         importLog(yourDeptInwardFile);
         importLog(yourDeptOutwardFile);
-        autoLoad();
+        importRecordz();
+        importLogs(title, id);
     }//GEN-LAST:event_formWindowOpened
 
     private void attachInwardMailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attachInwardMailMouseClicked
@@ -2170,6 +2211,50 @@ public class Register extends javax.swing.JFrame {
     private void attachOutwardFileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_attachOutwardFileMouseClicked
         attach(attachOutwardFile, aTittleOutwardFile);
     }//GEN-LAST:event_attachOutwardFileMouseClicked
+
+    private void inMailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inMailTableKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
+            showRecord(issueNoInwardMail, dateInwardMail, transitionInwardMail, subjectInwardMail,
+                    purposeInwardMail, whoFromInwardMail, yourDeptInwardMail, attachInwardMail,
+                    aTittleInwardMail, inMailTable);
+            delete(issueNoInwardMail, transitionInwardMail, subjectInwardMail, purposeInwardMail,
+                    whoFromInwardMail, aTittleInwardMail, aTittleInwardMail, inMailTable);
+            autoSave();
+        }
+    }//GEN-LAST:event_inMailTableKeyPressed
+
+    private void outMailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outMailTableKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
+            showRecord(issueNoOutwardMail, dateOutwardMail, transitionOutwardMail, subjectOutwardMail,
+                    purposeOutwardMail, whoToOutwardMail, yourDeptOutwardMail, attachOutwardMail,
+                    aTittleOutwardMail, outMailTable);
+            delete(issueNoOutwardMail, transitionOutwardMail, subjectOutwardMail, purposeOutwardMail,
+                    whoToOutwardMail, aTittleOutwardMail, aTittleOutwardMail, outMailTable);
+            autoSave();
+        }
+    }//GEN-LAST:event_outMailTableKeyPressed
+
+    private void inFileTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inFileTableKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
+            showRecord(issueNoInwardFile, dateInwardFile, transitionInwardFile, subjectInwardFile,
+                    purposeInwardFile, whoFromInwardFile, yourDeptInwardFile, attachInwardFile,
+                    aTittleInwardFile, inFileTable);
+            delete(issueNoInwardFile, transitionInwardFile, subjectInwardFile, purposeInwardFile,
+                    whoFromInwardFile, aTittleInwardFile, aTittleInwardFile, inFileTable);
+            autoSave();
+        }
+    }//GEN-LAST:event_inFileTableKeyPressed
+
+    private void outFileTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outFileTableKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
+            showRecord(issueNoOutwardFile, dateOutwardFile, transitionOutwardFile, subjectOutwardFile,
+                    purposeOutwardFile, whoToOutwardFile, yourDeptOutwardFile, attachOutwardFile,
+                    aTittleOutwardFile, outFileTable);
+            delete(issueNoOutwardFile, transitionOutwardFile, subjectOutwardFile, purposeOutwardFile,
+                    whoToOutwardFile, aTittleOutwardFile, aTittleOutwardFile, outFileTable);
+            autoSave();
+        }
+    }//GEN-LAST:event_outFileTableKeyPressed
 
     /**
      * @param args the command line arguments
@@ -2227,6 +2312,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton deleteOutwardMail;
     private javax.swing.JLabel emblem;
     private javax.swing.JButton export;
+    private javax.swing.JLabel id;
     private javax.swing.JButton importRecords;
     private javax.swing.JScrollPane inFileScroll;
     private javax.swing.JTable inFileTable;
@@ -2242,7 +2328,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel issue3;
     private javax.swing.JTextField issueNoInwardFile;
     private javax.swing.JTextField issueNoInwardMail;
-    private javax.swing.JTextField issueNoOutwardFIle;
+    private javax.swing.JTextField issueNoOutwardFile;
     private javax.swing.JTextField issueNoOutwardMail;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2253,6 +2339,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel marquee;
     private javax.swing.JLabel note;
     private javax.swing.JLabel note1;
     private javax.swing.JLabel note2;
@@ -2278,6 +2365,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField searchOutwardFile;
     private javax.swing.JTextField searchOutwardMail;
     private javax.swing.JPanel sideBar;
+    private javax.swing.JLabel staff;
     private javax.swing.JLabel sub;
     private javax.swing.JLabel sub1;
     private javax.swing.JLabel sub2;
@@ -2322,17 +2410,16 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField yourDeptOutwardMail;
     // End of variables declaration//GEN-END:variables
 
-    private void clearFields(JTextField issueNo, JTextField date, JTextField transition, JTextArea subject,
+    private void clearFields(JTextField issueNo, JTextField transition, JTextArea subject,
             JTextArea notes, JComboBox<String> whoFrom, JLabel picLabel, JLabel file) {
         issueNo.requestFocusInWindow();
         issueNo.setText(null);
-        date.setText(null);
         transition.setText(null);
         subject.setText(null);
         notes.setText(null);
         whoFrom.setSelectedIndex(0);
         picLabel.setIcon(null);
-        picLabel.setText("Attach your document here...");
+        picLabel.setText("Click to attach document here...");
         file.setText(null);
 
         refreshTime();
@@ -2348,31 +2435,33 @@ public class Register extends javax.swing.JFrame {
         String whoF = whoFrom.getSelectedItem().toString();
         String whoT = yourDept.getText();
         String doc = file.getText();
+        String sign = id.getText();
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-        Object[] obj = new Object[]{num, dat, whoF, whoT, sub, trans, note, "", doc};
+        Object[] obj = new Object[]{num, dat, whoF, whoT, sub, trans, note, sign, doc};
         if ("".equals(num) || "".equals(sub) || "".equals(trans) || "".equals(note) || "".equals(dat)) {
             JOptionPane.showMessageDialog(this, "Review all fields and make sure no field is empty!", "Add Error", 2);
         } else if (whoF.equalsIgnoreCase(whoT)) {
             JOptionPane.showMessageDialog(this, "A department can't send/receive a document to/from itself!", "Add Error", 2);
         } else {
             model.insertRow(model.getRowCount(), obj);
-            clearFields(issueNo, date, transition, subject, notes, whoFrom, picLabel, file);
+            clearFields(issueNo, transition, subject, notes, whoFrom, picLabel, file);
         }
+
     }
 
-    private void delete(JTextField issueNo, JTextField date, JTextField transition, JTextArea subject,
+    private void delete(JTextField issueNo, JTextField transition, JTextArea subject,
             JTextArea notes, JComboBox<String> whoFrom, JLabel picLabel, JLabel file, JTable table) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
         if (table.getSelectedRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "Select a row to dalete!", "Delete Error", 2);
+            JOptionPane.showMessageDialog(this, "Select a row to delete!", "Delete Error", 2);
         } else {
             int dR = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this data?", "Delete", JOptionPane.YES_NO_OPTION);
             if (dR == 0) {
                 model.removeRow(table.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Row daleted successfully...", "Success", 1);
-                clearFields(issueNo, date, transition, subject, notes, whoFrom, picLabel, file);
+                clearFields(issueNo, transition, subject, notes, whoFrom, picLabel, file);
             }
         }
     }
@@ -2399,7 +2488,7 @@ public class Register extends javax.swing.JFrame {
                 model.setValueAt(obj[i], table.getSelectedRow(), i);
             }
             JOptionPane.showMessageDialog(this, "Record updated successfully...", "Success", 1);
-            clearFields(issueNo, date, transition, subject, notes, whoFrom, picLabel, file);
+            clearFields(issueNo, transition, subject, notes, whoFrom, picLabel, file);
         }
     }
 
@@ -2439,7 +2528,7 @@ public class Register extends javax.swing.JFrame {
         trs.setRowFilter(RowFilter.regexFilter(search));
     }
 
-    private static Connection myConnectionGeneralDatabase() {
+    private static Connection myConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost"
@@ -2450,25 +2539,15 @@ public class Register extends javax.swing.JFrame {
         return null;
     }
 
-    private static Connection myConnectionDeptDatabase() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost"
-                    + ":3306/npc_departmental_register", "root", "001008186116002");
-            return connection;
-        } catch (ClassNotFoundException | SQLException ex) {
-        }
-        return null;
-    }
-
-    private void syncRecordsToGeneralDatabase(JTable table, String tableName) {
-        String num, dat, trans, sub, purpose, whoF, whoT;
+    private void syncRecords(JTable table, String tableName) {
+        String num, dat, trans, sub, purpose, whoF, whoT, sign, directory;
 
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         if (model.getRowCount() == 0) {
             JOptionPane.showMessageDialog(this, "No records to synchronize", "Sync Error", 2);
         } else {
             int surety = JOptionPane.showConfirmDialog(this, "Upload table records to cloud database?", "Cloud upload", JOptionPane.YES_NO_OPTION);
+
             if (surety == 0) {
                 try {
                     for (int i = 0; i < model.getRowCount(); i++) {
@@ -2479,11 +2558,13 @@ public class Register extends javax.swing.JFrame {
                         sub = String.valueOf(table.getValueAt(i, 4));
                         trans = String.valueOf(model.getValueAt(i, 5));
                         purpose = String.valueOf(model.getValueAt(i, 6));
+                        sign = String.valueOf(model.getValueAt(i, 7));
+                        directory = String.valueOf(model.getValueAt(i, 8));
 
                         String query = "INSERT INTO `" + tableName + "` (id,issueno,date,whofrom,whoto,"
                                 + "subject,transition,purpose,sign,file ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-                        PreparedStatement statement = (PreparedStatement) myConnectionGeneralDatabase().prepareStatement(query);
+                        PreparedStatement statement = (PreparedStatement) myConnection().prepareStatement(query);
                         statement.setString(1, "");
                         statement.setString(2, num);
                         statement.setString(3, dat);
@@ -2492,70 +2573,17 @@ public class Register extends javax.swing.JFrame {
                         statement.setString(6, sub);
                         statement.setString(7, trans);
                         statement.setString(8, purpose);
-                        statement.setString(9, "");
-                        try {
-                            File file = new File(String.valueOf(model.getValueAt(i, 8)));
-                            InputStream is = new FileInputStream(file);
-                            statement.setBinaryStream(10, is, (int) file.length());
-                        } catch (FileNotFoundException fnfe) {
-                            JOptionPane.showMessageDialog(this, fnfe);
-                        }
+                        statement.setString(9, sign);
+                        statement.setString(10, directory);
+
                         statement.execute();
                     }
                 } catch (SQLException e) {
                     System.out.println(e);
-                    JOptionPane.showMessageDialog(this, "Couldn't synchronize records, try again!", "Sync error", JOptionPane.YES_NO_OPTION);
+                    JOptionPane.showMessageDialog(this, "Couldn't synchronize records!\n" + e.getMessage(), "Sync error", JOptionPane.YES_NO_OPTION);
                 }
-            }
-        }
-    }
-
-    private void syncRecordsToDeptDatabase(JTable table, String tableName) {
-        String num, dat, trans, sub, purpose, whoF, whoT;
-
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        if (model.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "No records to synchronize", "Sync Error", 2);
-        } else {
-            int surety = JOptionPane.showConfirmDialog(this, "Upload table records to cloud database?", "Cloud upload", JOptionPane.YES_NO_OPTION);
-            if (surety == 0) {
-                try {
-                    for (int i = 0; i < model.getRowCount(); i++) {
-                        num = String.valueOf(model.getValueAt(i, 0));
-                        dat = String.valueOf(model.getValueAt(i, 1));
-                        whoF = String.valueOf(model.getValueAt(i, 2));
-                        whoT = String.valueOf(model.getValueAt(i, 3));
-                        sub = String.valueOf(table.getValueAt(i, 4));
-                        trans = String.valueOf(model.getValueAt(i, 5));
-                        purpose = String.valueOf(model.getValueAt(i, 6));
-
-                        String query = "INSERT INTO `" + tableName + "` (id,issueno,date,whofrom,whoto,"
-                                + "subject,transition,purpose,sign,file ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-                        PreparedStatement statement = (PreparedStatement) myConnectionDeptDatabase().prepareStatement(query);
-                        statement.setString(1, "");
-                        statement.setString(2, num);
-                        statement.setString(3, dat);
-                        statement.setString(4, whoF);
-                        statement.setString(5, whoT);
-                        statement.setString(6, sub);
-                        statement.setString(7, trans);
-                        statement.setString(8, purpose);
-                        statement.setString(9, "");
-                        try {
-                            File file = new File(String.valueOf(model.getValueAt(i, 8)));
-                            InputStream is = new FileInputStream(file);
-                            statement.setBinaryStream(10, is, (int) file.length());
-                        } catch (FileNotFoundException fnfe) {
-                            JOptionPane.showMessageDialog(this, fnfe);
-                        }
-                        statement.execute();
-                    }
-                    model.setRowCount(0);
-                } catch (SQLException e) {
-                    System.out.println(e);
-                    JOptionPane.showMessageDialog(this, "Couldn't synchronize records, try again!", "Sync error", JOptionPane.YES_NO_OPTION);
-                }
+                JOptionPane.showMessageDialog(this, "Records synchronized successfully...!");
+                model.setRowCount(0);
             }
         }
     }
@@ -2574,41 +2602,178 @@ public class Register extends javax.swing.JFrame {
         dateField(dateOutwardFile);
     }
 
-    private void exportRecordz(JTable table, String tableName) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        try {
-            FileOutputStream fos = new FileOutputStream(tableName + ".txt");
-            try ( PrintWriter pw = new PrintWriter(fos)) {
-                for (int i = 0; i < table.getRowCount(); i++) {
-                    for (int j = 0; j < table.getColumnCount(); j++) {
-                        pw.write(String.valueOf(model.getValueAt(i, j)) + "\t");
-                    }
-                    pw.write("\n");
-                }
-                pw.close();
-                fos.close();
-            } catch (IOException ex) {
+    private void exportRecordz() {
+        DefaultTableModel model1 = (DefaultTableModel) inMailTable.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) outMailTable.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) inFileTable.getModel();
+        DefaultTableModel model4 = (DefaultTableModel) outFileTable.getModel();
+
+        XSSFWorkbook workbook = null;
+        FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
+
+        String fileName1 = yourDeptInwardMail.getText() + "Inward Mails";
+        String fileName2 = yourDeptOutwardMail.getText() + "Outward Mails";
+        String fileName3 = yourDeptInwardFile.getText() + "Inward Files";
+        String fileName4 = yourDeptOutwardFile.getText() + "Outward Files";
+
+        workbook = new XSSFWorkbook();
+        XSSFSheet worksheet1 = workbook.createSheet(fileName1);
+        XSSFSheet worksheet2 = workbook.createSheet(fileName2);
+        XSSFSheet worksheet3 = workbook.createSheet(fileName3);
+        XSSFSheet worksheet4 = workbook.createSheet(fileName4);
+
+        for (int row = 0; row < inMailTable.getRowCount(); row++) {
+            XSSFRow rows = worksheet1.createRow(row);
+            for (int column = 0; column < inMailTable.getColumnCount(); column++) {
+                XSSFCell cells = rows.createCell(column);
+                cells.setCellValue((String.valueOf(model1.getValueAt(row, column))));
             }
-        } catch (FileNotFoundException fnfe) {
+        }
+
+        for (int row = 0; row < outMailTable.getRowCount(); row++) {
+            XSSFRow rows = worksheet2.createRow(row);
+            for (int column = 0; column < outMailTable.getColumnCount(); column++) {
+                XSSFCell cells = rows.createCell(column);
+                cells.setCellValue((String.valueOf(model2.getValueAt(row, column))));
+            }
+        }
+
+        for (int row = 0; row < inFileTable.getRowCount(); row++) {
+            XSSFRow rows = worksheet3.createRow(row);
+            for (int column = 0; column < inFileTable.getColumnCount(); column++) {
+                XSSFCell cells = rows.createCell(column);
+                cells.setCellValue((String.valueOf(model3.getValueAt(row, column))));
+            }
+        }
+
+        for (int row = 0; row < outFileTable.getRowCount(); row++) {
+            XSSFRow rows = worksheet4.createRow(row);
+            for (int column = 0; column < outFileTable.getColumnCount(); column++) {
+                XSSFCell cells = rows.createCell(column);
+                cells.setCellValue((String.valueOf(model4.getValueAt(row, column))));
+            }
+        }
+
+        try {
+            fos = new FileOutputStream("Logs.xlsx");
+            bos = new BufferedOutputStream(fos);
+            workbook.write(bos);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (bos != null) {
+                    bos.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
+                if (workbook != null) {
+                    workbook.close();
+                }
+            } catch (IOException io) {
+                System.out.println(io.getMessage());
+            }
         }
     }
 
-    private void importRecordz(JTable table, String tableName) {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        String path = String.valueOf(tableName + ".txt");
-        try {
-            FileReader fr = new FileReader(new File(path));
-            BufferedReader br = new BufferedReader(fr);
-            Object[] lines = br.lines().toArray();
+    private void importRecordz() {
+        DefaultTableModel model1 = (DefaultTableModel) inMailTable.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) outMailTable.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) inFileTable.getModel();
+        DefaultTableModel model4 = (DefaultTableModel) outFileTable.getModel();
 
-            for (int i = 0; i < lines.length; i++) {
-                String[] rows = String.valueOf(lines[i]).split("\t");
-                model.addRow(rows);
+        XSSFWorkbook workbook = null;
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+
+        try {
+            fis = new FileInputStream(new File("Logs.xlsx"));
+            bis = new BufferedInputStream(fis);
+            workbook = new XSSFWorkbook(bis);
+            XSSFSheet worksheet1 = workbook.getSheetAt(0);
+            XSSFSheet worksheet2 = workbook.getSheetAt(1);
+            XSSFSheet worksheet3 = workbook.getSheetAt(2);
+            XSSFSheet worksheet4 = workbook.getSheetAt(3);
+
+            for (int row = 0; row <= worksheet1.getLastRowNum(); row++) {
+                XSSFRow rows = worksheet1.getRow(row);
+                XSSFCell number = rows.getCell(0);
+                XSSFCell date = rows.getCell(1);
+                XSSFCell from = rows.getCell(2);
+                XSSFCell to = rows.getCell(3);
+                XSSFCell subject = rows.getCell(4);
+                XSSFCell transition = rows.getCell(5);
+                XSSFCell purpose = rows.getCell(6);
+                XSSFCell sign = rows.getCell(7);
+                XSSFCell doc = rows.getCell(8);
+                model1.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
             }
-            br.close();
-            fr.close();
-        } catch (FileNotFoundException fnfe) {
+
+            for (int row = 0; row <= worksheet2.getLastRowNum(); row++) {
+                XSSFRow rows = worksheet2.getRow(row);
+                XSSFCell number = rows.getCell(0);
+                XSSFCell date = rows.getCell(1);
+                XSSFCell from = rows.getCell(2);
+                XSSFCell to = rows.getCell(3);
+                XSSFCell subject = rows.getCell(4);
+                XSSFCell transition = rows.getCell(5);
+                XSSFCell purpose = rows.getCell(6);
+                XSSFCell sign = rows.getCell(7);
+                XSSFCell doc = rows.getCell(8);
+                model2.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+            }
+
+            for (int row = 0; row <= worksheet3.getLastRowNum(); row++) {
+                XSSFRow rows = worksheet3.getRow(row);
+                XSSFCell number = rows.getCell(0);
+                XSSFCell date = rows.getCell(1);
+                XSSFCell from = rows.getCell(2);
+                XSSFCell to = rows.getCell(3);
+                XSSFCell subject = rows.getCell(4);
+                XSSFCell transition = rows.getCell(5);
+                XSSFCell purpose = rows.getCell(6);
+                XSSFCell sign = rows.getCell(7);
+                XSSFCell doc = rows.getCell(8);
+                model3.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+            }
+
+            for (int row = 0; row <= worksheet4.getLastRowNum(); row++) {
+                XSSFRow rows = worksheet4.getRow(row);
+                XSSFCell number = rows.getCell(0);
+                XSSFCell date = rows.getCell(1);
+                XSSFCell from = rows.getCell(2);
+                XSSFCell to = rows.getCell(3);
+                XSSFCell subject = rows.getCell(4);
+                XSSFCell transition = rows.getCell(5);
+                XSSFCell purpose = rows.getCell(6);
+                XSSFCell sign = rows.getCell(7);
+                XSSFCell doc = rows.getCell(8);
+                model4.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+            }
+
+            refreshTime();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
         } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (bis != null) {
+                    bis.close();
+                }
+                if (fis != null) {
+                    fis.close();
+                }
+                if (workbook != null) {
+                    workbook.close();
+                }
+            } catch (IOException io) {
+                System.out.println(io.getMessage());
+            }
         }
     }
 
@@ -2628,18 +2793,24 @@ public class Register extends javax.swing.JFrame {
         }
     }
 
-    private void autoSave() {
-        exportRecordz(inMailTable, "Inward Mail Records");
-        exportRecordz(outMailTable, "Outward Mail Records");
-        exportRecordz(inFileTable, "Inward File Records");
-        exportRecordz(outFileTable, "Outward File Records");
+    private void importLogs(JLabel name, JLabel id) {
+        String path = "%.txt";
+        try {
+            FileReader fr = new FileReader(new File(path));
+            BufferedReader br = new BufferedReader(fr);
+            Object[] lines = br.lines().toArray();
+            name.setText(String.valueOf("Name: " + lines[0]));
+            id.setText(String.valueOf(lines[1]));
+            br.close();
+            fr.close();
+        } catch (FileNotFoundException fnfe) {
+        } catch (IOException ex) {
+        }
     }
 
-    private void autoLoad() {
-        importRecordz(inMailTable, "Inward Mail Records");
-        importRecordz(outMailTable, "Outward Mail Records");
-        importRecordz(inFileTable, "Inward File Records");
-        importRecordz(outFileTable, "Outward File Records");
+    private void autoSave() {
+        deleteLogs();
+        exportRecordz();
     }
 
     private void attach(JLabel fileHolder, JLabel fileTitleHolder) {
@@ -2658,15 +2829,216 @@ public class Register extends javax.swing.JFrame {
         fileHolder.setIcon(new ImageIcon(image));
     }
 
-//    private static class cellRenderer extends DefaultTableCellRenderer {
-//
-//        @Override
-//        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-//                boolean hasFocus, int row, int column) {
-//            if (value instanceof JLabel label) {
-//                return label;
-//            }
-//            return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-//        }
-//    }
+    private void Export(JTable table1, JTable table2, JTable table3, JTable table4, JTextField field) {
+        DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) table2.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) table3.getModel();
+        DefaultTableModel model4 = (DefaultTableModel) table4.getModel();
+        File desktop = FileSystemView.getFileSystemView().getHomeDirectory();
+
+        XSSFWorkbook workbook = null;
+        FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
+
+        JFileChooser fc = new JFileChooser(desktop.getAbsolutePath());
+        fc.setDialogTitle("Export all records:");
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("Excel file", "xls", "xlsx", "xlsm");
+        fc.setFileFilter(fnef);
+        String fileName1 = field.getText() + "Inward Mails";
+        String fileName2 = field.getText() + "Outward Mails";
+        String fileName3 = field.getText() + "Inward Files";
+        String fileName4 = field.getText() + "Outward Files";
+        int option = JOptionPane.showConfirmDialog(this, "You are about to export all unsynchronized records to local storage, continue?", "Export", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (option == 0) {
+            int status = fc.showSaveDialog(null);
+
+            if (status == JFileChooser.APPROVE_OPTION) {
+                workbook = new XSSFWorkbook();
+                XSSFSheet worksheet1 = workbook.createSheet(fileName1);
+                XSSFSheet worksheet2 = workbook.createSheet(fileName2);
+                XSSFSheet worksheet3 = workbook.createSheet(fileName3);
+                XSSFSheet worksheet4 = workbook.createSheet(fileName4);
+
+                for (int row = 0; row < table1.getRowCount(); row++) {
+                    XSSFRow rows = worksheet1.createRow(row);
+                    for (int column = 0; column < table1.getColumnCount(); column++) {
+                        XSSFCell cells = rows.createCell(column);
+                        cells.setCellValue((String.valueOf(model1.getValueAt(row, column))));
+                    }
+                }
+
+                for (int row = 0; row < table2.getRowCount(); row++) {
+                    XSSFRow rows = worksheet2.createRow(row);
+                    for (int column = 0; column < table2.getColumnCount(); column++) {
+                        XSSFCell cells = rows.createCell(column);
+                        cells.setCellValue((String.valueOf(model2.getValueAt(row, column))));
+                    }
+                }
+
+                for (int row = 0; row < table3.getRowCount(); row++) {
+                    XSSFRow rows = worksheet3.createRow(row);
+                    for (int column = 0; column < table3.getColumnCount(); column++) {
+                        XSSFCell cells = rows.createCell(column);
+                        cells.setCellValue((String.valueOf(model3.getValueAt(row, column))));
+                    }
+                }
+
+                for (int row = 0; row < table4.getRowCount(); row++) {
+                    XSSFRow rows = worksheet4.createRow(row);
+                    for (int column = 0; column < table4.getColumnCount(); column++) {
+                        XSSFCell cells = rows.createCell(column);
+                        cells.setCellValue((String.valueOf(model4.getValueAt(row, column))));
+                    }
+                }
+
+                try {
+                    fos = new FileOutputStream(fc.getSelectedFile() + ".xlsx");
+                    bos = new BufferedOutputStream(fos);
+                    workbook.write(bos);
+
+                    JOptionPane.showMessageDialog(this, "Records exported to " + fc.getSelectedFile().getPath() + " successfully...!");
+                    refreshTime();
+                } catch (FileNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, ex.getMessage());
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, ex.getMessage());
+                } finally {
+                    try {
+                        if (bos != null) {
+                            bos.close();
+                        }
+                        if (fos != null) {
+                            fos.close();
+                        }
+                        if (workbook != null) {
+                            workbook.close();
+                        }
+                    } catch (IOException io) {
+                        JOptionPane.showMessageDialog(this, io.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    private void Import(JTable table1, JTable table2, JTable table3, JTable table4) {
+        DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) table2.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) table3.getModel();
+        DefaultTableModel model4 = (DefaultTableModel) table4.getModel();
+        File desktop = FileSystemView.getFileSystemView().getHomeDirectory(), file;
+
+        XSSFWorkbook workbook = null;
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+
+        JFileChooser fc = new JFileChooser(desktop.getAbsolutePath());
+        fc.setDialogTitle("Import all records:");
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("Excel file", "xls", "xlsx", "xlsm");
+        fc.setFileFilter(fnef);
+        int option = JOptionPane.showConfirmDialog(this, "You are about to import all unsynchronized records\ninitially saved to local storage, continue?", "Import", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (option == 0) {
+            int status = fc.showOpenDialog(null);
+            if (status == JFileChooser.APPROVE_OPTION) {
+
+                try {
+                    file = fc.getSelectedFile();
+                    fis = new FileInputStream(file);
+                    bis = new BufferedInputStream(fis);
+                    workbook = new XSSFWorkbook(bis);
+                    XSSFSheet worksheet1 = workbook.getSheetAt(0);
+                    XSSFSheet worksheet2 = workbook.getSheetAt(1);
+                    XSSFSheet worksheet3 = workbook.getSheetAt(2);
+                    XSSFSheet worksheet4 = workbook.getSheetAt(3);
+
+                    for (int row = 0; row <= worksheet1.getLastRowNum(); row++) {
+                        XSSFRow rows = worksheet1.getRow(row);
+                        XSSFCell number = rows.getCell(0);
+                        XSSFCell date = rows.getCell(1);
+                        XSSFCell from = rows.getCell(2);
+                        XSSFCell to = rows.getCell(3);
+                        XSSFCell subject = rows.getCell(4);
+                        XSSFCell transition = rows.getCell(5);
+                        XSSFCell purpose = rows.getCell(6);
+                        XSSFCell sign = rows.getCell(7);
+                        XSSFCell doc = rows.getCell(8);
+                        model1.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+                    }
+
+                    for (int row = 0; row <= worksheet2.getLastRowNum(); row++) {
+                        XSSFRow rows = worksheet2.getRow(row);
+                        XSSFCell number = rows.getCell(0);
+                        XSSFCell date = rows.getCell(1);
+                        XSSFCell from = rows.getCell(2);
+                        XSSFCell to = rows.getCell(3);
+                        XSSFCell subject = rows.getCell(4);
+                        XSSFCell transition = rows.getCell(5);
+                        XSSFCell purpose = rows.getCell(6);
+                        XSSFCell sign = rows.getCell(7);
+                        XSSFCell doc = rows.getCell(8);
+                        model2.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+                    }
+
+                    for (int row = 0; row <= worksheet3.getLastRowNum(); row++) {
+                        XSSFRow rows = worksheet3.getRow(row);
+                        XSSFCell number = rows.getCell(0);
+                        XSSFCell date = rows.getCell(1);
+                        XSSFCell from = rows.getCell(2);
+                        XSSFCell to = rows.getCell(3);
+                        XSSFCell subject = rows.getCell(4);
+                        XSSFCell transition = rows.getCell(5);
+                        XSSFCell purpose = rows.getCell(6);
+                        XSSFCell sign = rows.getCell(7);
+                        XSSFCell doc = rows.getCell(8);
+                        model3.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+                    }
+
+                    for (int row = 0; row <= worksheet4.getLastRowNum(); row++) {
+                        XSSFRow rows = worksheet4.getRow(row);
+                        XSSFCell number = rows.getCell(0);
+                        XSSFCell date = rows.getCell(1);
+                        XSSFCell from = rows.getCell(2);
+                        XSSFCell to = rows.getCell(3);
+                        XSSFCell subject = rows.getCell(4);
+                        XSSFCell transition = rows.getCell(5);
+                        XSSFCell purpose = rows.getCell(6);
+                        XSSFCell sign = rows.getCell(7);
+                        XSSFCell doc = rows.getCell(8);
+                        model4.addRow(new Object[]{number, date, from, to, subject, transition, purpose, sign, doc});
+                    }
+
+                    JOptionPane.showMessageDialog(this, "Records imported successfully...!");
+                    refreshTime();
+                } catch (FileNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, ex.getMessage());
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, ex.getMessage());
+                } finally {
+                    try {
+                        if (bis != null) {
+                            bis.close();
+                        }
+                        if (fis != null) {
+                            fis.close();
+                        }
+                        if (workbook != null) {
+                            workbook.close();
+                        }
+                    } catch (IOException io) {
+                        JOptionPane.showMessageDialog(this, io.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    private void deleteLogs() {
+        try {
+            Files.deleteIfExists(Paths.get("Logs.xlsx"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
