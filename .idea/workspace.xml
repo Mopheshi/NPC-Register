@@ -1,8 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;
+  <component name="ChangeListManager">
+    <list default="true" id="045aca38-ac70-4de3-83f2-8a478fc63ffe" name="Changes" comment="National Population Commission Register">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/%.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NPC Register.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NPC Register.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/NPCRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/NPCRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$41.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$42.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$42.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$43.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$43.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$44.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$44.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$45.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$45.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$46.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$46.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$47.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$47.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$48.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$48.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$49.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$49.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$50.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$50.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$51.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$51.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$52.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$52.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$53.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$53.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$54.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$54.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$55.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$55.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$56.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$56.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$57.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$57.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$58.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$58.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$59.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$59.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$60.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$60.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$61.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$61.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$62.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$62.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$63.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$63.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$64.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$65.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$65.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$66.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$66.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$67.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$67.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$68.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$68.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$69.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$69.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$70.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$70.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$71.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$71.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$72.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$72.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$73.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$73.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$74.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$74.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$75.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$75.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$76.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$76.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$77.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$77.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$78.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$78.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/npc/register/Splash.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/npc/register/Splash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/NPC_Register.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/NPC_Register.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/lib/AbsoluteLayout.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/lib/AbsoluteLayout.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$41.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$42.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$42.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$43.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$43.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$44.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$44.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$45.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$45.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$46.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$46.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$47.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$47.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$48.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$48.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$49.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$49.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$50.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$50.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$51.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$51.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$52.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$52.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$53.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$53.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$54.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$54.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$55.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$55.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$56.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$56.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$57.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$57.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$58.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$58.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$59.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$59.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$60.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$60.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$61.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$61.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$62.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$62.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$63.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$63.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$64.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$65.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$65.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$66.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$66.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$67.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$67.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$68.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$68.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$69.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$69.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$70.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$70.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$71.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$71.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$72.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$72.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$73.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$73.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$74.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$74.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$75.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$75.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$76.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$76.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$77.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$77.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$78.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$78.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Splash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NPC Register/npc/register/Splash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/npc/register/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/npc/register/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/npc/register/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/npc/register/Register.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Sf50u4CTbkKRmHtrg6iI6qvcCS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/MOPHE/Desktop/NPC Register",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="045aca38-ac70-4de3-83f2-8a478fc63ffe" name="Changes" comment="" />
+      <created>1689524574673</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689524574673</updated>
+    </task>
+    <task id="LOCAL-00001" summary="National Population Commission Register">
+      <option name="closed" value="true" />
+      <created>1689524861791</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689524861792</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="National Population Commission Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="National Population Commission Register" />
+  </component>
 </project>
