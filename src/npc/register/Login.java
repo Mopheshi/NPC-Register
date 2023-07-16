@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package npc.register;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
@@ -21,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Objects;
+import javax.swing.*;
 
 /**
  *
@@ -35,7 +30,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JPanel BG;
     private javax.swing.JLabel log;
     private javax.swing.JButton logIn;
@@ -133,7 +128,7 @@ public class Login extends javax.swing.JFrame {
             login(userName, passWord);
         }
     }//GEN-LAST:event_passWordKeyPressed
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 
     /**
      * This method is called from within the constructor to initialize the form.

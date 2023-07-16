@@ -1,28 +1,29 @@
 <component name="libraryTable">
   <library name="lib2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-javadoc-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-logging-1.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-excelant-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-ooxml-full-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/slf4j-api-1.7.36.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/xmlbeans-5.1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/jakarta.activation-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-math3-3.6.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-examples-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-ooxml-lite-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-scratchpad-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-collections4-4.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-ooxml-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-io-2.11.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-codec-1.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/log4j-api-2.18.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/curvesapi-1.07.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/commons-compress-1.21.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/jakarta.xml.bind-api-3.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/poi-5.2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/mysql-connector.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/npc/register/lib/SparseBitSet-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-scratchpad-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/curvesapi-1.07.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-ooxml-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jakarta.xml.bind-api-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-ooxml-lite-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-io-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-compress-1.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-ooxml-full-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/SparseBitSet-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/AbsoluteLayout.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/jakarta.activation-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/mysql-connector.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-examples-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-javadoc-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/log4j-api-2.18.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/xmlbeans-5.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/slf4j-api-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/poi-excelant-5.2.3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
